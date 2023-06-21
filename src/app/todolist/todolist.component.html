@@ -1,0 +1,213 @@
+
+<div class="grid-container">
+
+  <!-- Adding new task -->
+  <div class="adding">
+  <div class="title">New Task</div>
+  <form [formGroup]="profileForm" (submit)="onSubmit()">
+  <div>
+   <input
+   type="text"
+   placeholder="Add new task..."
+   class="inputs"
+   formControlName="title" required>
+  </div>
+  <div>
+    <div class="labels">Description</div>
+    <div>
+      <textarea
+      name="Description"
+      rows="8"
+      class="inputs"
+      formControlName="description"
+      >
+    </textarea>
+    </div>
+  </div>
+  <div class="duedate">
+    <div>
+    <div class="labels">Due Date</div>
+    <div>
+      <input
+      type="date"
+      class="inputs"
+      name="duedate"
+      formControlName="duedate"
+      [value]="currentD"
+      [min]="currentD"
+      >
+    </div>
+    </div>
+    <div>
+    <div class="labels">Piority</div>
+    <div>
+    <select
+    id="piority"
+    name="piority"
+    class="inputs"
+    formControlName="piority">
+      <option value="normal">Normal</option>
+      <option value="high">High</option>
+      <option value="low">Low</option>
+    </select>
+    </div>
+    </div>
+  </div>
+<!-- Showing iuput errors -->
+<div *ngIf="profileForm.controls['title'].invalid && (profileForm.controls['title'].dirty || profileForm.controls['title'].touched)"
+  style="color: red;">
+<div *ngIf="profileForm.controls['title'].errors?.['required'] || profileForm.controls['description'].errors?.['required']">
+  fillup the fields!.
+</div>
+</div>
+<div *ngIf="titleTodo!=null" style="color: red;">
+  title dublicated!.
+</div>
+<!-- Finish showing iuput errors -->
+  <div>
+     <button
+     type="submit"
+     class="buttonAddUpdate"
+     [disabled]="!profileForm.valid">Add</button>
+  </div>
+  </form>
+  </div>
+<!-- Finish adding new task -->
+
+
+<!-- Displaying tasks -->
+  <div class="display">
+  <div class="title">To Do List</div>
+
+  <!-- Searching tasks -->
+  <div>
+    <input type="text" placeholder="Search..." class="inputs" (keyup)="SearchTask($event)">
+  </div>
+  <!-- Finish searching tasks -->
+
+   <!-- Search tasks -->
+   <div *ngIf="TasksSearch.length > 0">
+    <table>
+      <tbody>
+        <tr *ngFor="let kk of TasksSearch">
+          <td>
+           <div class="search-container">
+            <p >Title: {{kk.title}}</p>
+            <p >Description: {{kk.description}}</p>
+            <p >Duedate: {{kk.duedate}}</p>
+            <p >Piority: {{kk.piority}}</p>
+           </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Finish search tasks -->
+
+
+  <!-- Task details -->
+  <div class="detail-container" *ngIf="TasksSearch.length <= 0">
+    <div class="task-details">
+      <label for="title"><input type="checkbox" name="title">{{item?.title}}</label>  <button class="details_button">Details</button> <button type="button" class="remove_button" (click)="DeleteTask(item)">Remove</button>
+    </div>
+    <div class="update-task">
+      <form [formGroup]="updateForm" (submit)="UpdateTask()">
+        <div>
+         <input
+         type="text"
+         placeholder="Add new task..."
+         class="inputs"
+         [value]="item?.title"
+         formControlName="titleUd"
+         required
+         [readonly]="true">
+        </div>
+        <div>
+          <div class="labels">Description</div>
+          <div>
+            <textarea
+            name="Description"
+            rows="8"
+            class="inputs"
+            formControlName="descriptionUd"
+            [value]="item?.description">
+          </textarea>
+          </div>
+        </div>
+        <div class="duedate">
+          <div>
+          <div class="labels">Due Date</div>
+          <div>
+            <input
+            type="date"
+            class="inputs"
+            name="duedate"
+            formControlName="duedateUd"
+            [value]="item?.duedate"
+            >
+          </div>
+          </div>
+          <div>
+          <div class="labels">Piority</div>
+          <div>
+          <select
+          id="piority"
+          name="piority"
+          class="inputs"
+          [value]="item?.piority"
+          formControlName="piorityUd">
+            <option value="normal">Normal</option>
+            <option value="high">High</option>
+            <option value="low">Low</option>
+          </select>
+          </div>
+          </div>
+        </div>
+        <div>
+           <button
+           type="submit"
+           class="buttonAddUpdate">Update</button>
+        </div>
+        </form>
+    </div>
+  </div>
+  <!-- Finish task deatails -->
+
+  <!-- Displaying all tasks -->
+  <table>
+    <tbody>
+      <tr *ngFor="let k of formValue">
+        <td>
+          <div class="task-container" *ngIf="TasksSearch.length <= 0">
+            <label
+            for="{{k.title}}">
+            <input
+            (change)="onChecked(k,$event)"
+            type="checkbox"
+            name="{{k.title}}">{{k.title}}</label>
+            <button class="details_button"
+            type="button"
+            (click)="Details(k)"
+            >Details</button>
+            <button
+            class="remove_button"
+            (click)="DeleteTask(k)">Remove</button>
+            </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Finish displaying all tasks -->
+
+  <!-- Bulk actions -->
+  <div class="bulk-action" *ngIf="Checked_list.length">
+    <p>Bulk Action:</p>  <button type="button" style="background-color: rgb(0, 123, 255);" [disabled]="Checked_list.length">Done</button> <button type="button" style="background-color: red;" (click)="DeleteBulk()">Remove</button>
+  </div>
+  <!-- Bulk actions -->
+
+  </div>
+<!-- Finish displaying tasks -->
+</div>
+
+
+

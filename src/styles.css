@@ -1,0 +1,345 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+/* todolist component */
+.grid-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  border: solid 1px black;
+  margin-top: 6%;
+  margin-left: 6%;
+  margin-right: 6%;
+  height: fit-content;
+  overflow: hidden;
+}
+
+
+.adding {
+  display: grid;
+  grid-template-rows: 80px 40px 120px 100px 80px;
+  gap: 10px;
+}
+
+.display {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 80px 40px auto auto auto auto;
+  gap: 10px;
+  border-left: solid 1px black;
+}
+
+.title{
+  margin-top: 25px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.inputs{
+  padding: 1px;
+  width: 90%;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 0%;
+}
+
+.description{
+  display: grid;
+  grid-template-rows: 30px 80px;
+}
+
+.labels{
+  margin-left: 4%;
+  margin-top: 4%;
+}
+
+.duedate {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-left: 2%;
+  margin-right: 3%;
+}
+
+.buttonAddUpdate{
+  padding: 1px;
+  width: 90%;
+  height: 25px;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 12%;
+  background-color: rgb(9, 204, 9);
+  border-radius: 4px;
+  color: white;
+  border: 0px;
+}
+.buttonAddUpdate:hover {background-color: #368739;}
+
+.task-container{
+  display: grid;
+  grid-template-columns: 62% 19% 19%;
+  grid-template-rows: 100%;
+  height: 60px;
+  border: solid 1px black;
+  align-items: center;
+  margin-top: 4%;
+  margin-bottom: 0%;
+  margin-left: 4%;
+  margin-right: 6%;
+}
+
+.task-container label{
+  margin-left: 4%;
+}
+
+.task-container button{
+  margin-right: 10%;
+  height: 20px;
+  color: white;
+  border: 0px;
+  border-radius: 5%;
+ }
+
+
+.bulk-action{
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  border: solid 1px black;
+  background-color:rgb(230, 229, 226);
+  align-items: center;
+  height: 80px;
+  bottom: 0px;
+}
+
+.bulk-action p{
+ margin-left: 4%;
+}
+
+.bulk-action button{
+  margin-right: 10%;
+  height: 30px;
+  color: white;
+  border: 0px;
+  border-radius: 5%;
+ }
+
+
+ .detail-container{
+  display: grid;
+  width: 90%;
+  grid-template-rows: 60px 400px;
+  border: solid 1px black;
+  margin-left: 4%;
+  margin-right: 6%;
+  margin-top: 0%;
+ }
+
+ .task-details{
+  display: grid;
+  grid-template-columns: 62% 19% 19%;
+  grid-template-rows: 100%;
+  height: 60px;
+  border-bottom: solid 1px black;
+  align-items: center;
+ }
+
+ .task-details label{
+  margin-left: 4%;
+}
+
+ .details_button{
+  margin-right: 10%;
+  height: 20px;
+  color: white;
+  border: 0px;
+  border-radius: 5%;
+  background-color: #4ec6de;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+ }
+ .details_button:hover {
+  background-color: rgb(27, 169, 155);
+  color: black;
+}
+
+ .remove_button{
+  margin-right: 20%;
+  height: 20px;
+  color: white;
+  border: 0px;
+  border-radius: 5%;
+  background-color: red;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+ }
+ .remove_button:hover {background-color: rgb(131, 77, 77); color: black;}
+
+ .update-task {
+  display: grid;
+  grid-template-rows: 40px 120px 100px 80px;
+  margin-top: 20px;
+}
+
+.search-container {
+  display: grid;
+  grid-template-columns: 110px 200px 162px 162px;
+  border: 3px solid rgba(22, 188, 177, 0.694);
+  text-align: left;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-radius: 20px;
+}
+
+.search-container p{
+  margin-right: 4%;
+  margin-left: 4%;
+  overflow-wrap: break-word;
+}
+/* finish todolist component */
+
+/* header component */
+.header-container {
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  max-width: 100%;
+}
+
+.logo-container {
+  display: grid;
+  justify-content: start;
+}
+
+.assigment-container {
+  display: grid;
+  justify-content: end;
+}
+
+.todolist-container {
+  display: grid;
+  justify-content: start;
+}
+
+.btnassignment {
+  border-radius: 30%;
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  width: 100%;
+}
+.btnassignment:hover {background-color: #4CAF50;}
+
+.btntodolist {
+  border-radius: 30%;
+  width: 100%;
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.btntodolist:hover {background-color: #008CBA;}
+
+/* finish header component */
+
+
+/* footer component */
+.footer {
+  padding-top: 10px;
+  position:relative;
+  bottom:0;
+  left:0;
+  width:100%;
+  height: 80px;
+  background-color: #16326d;
+  text-align: center;
+  color: white;
+  line-height: 0.4em;
+}
+
+/* finish footer component */
+
+/* assignment component */
+.baitap01 {
+  height:240vh;
+  width: auto;
+  background: url("./assets/images/Project 01.jpg")no-repeat;
+  -webkit-background-size:cover;
+  -o-background-size:cover;
+  -moz-background-size:cover;
+  background-size:cover;
+ }
+
+ .baitap02 {
+  height:240vh;
+  width: auto;
+  background: url("./assets/images/Project 02.jpg")no-repeat;
+  -webkit-background-size:cover;
+  -o-background-size:cover;
+  -moz-background-size:cover;
+  background-size:cover;
+ }
+
+ .baitap03 {
+  height:240vh;
+  width: auto;
+  background: url("./assets/images/Project 03.jpg")no-repeat;
+  -webkit-background-size:cover;
+  -o-background-size:cover;
+  -moz-background-size:cover;
+  background-size:cover;
+ }
+
+ .assignment-container {
+  display: grid;
+  grid-template-rows: auto auto auto;
+}
+
+/* finish assignment component */
+
+/* home component */
+.home-container {
+  display: grid;
+  grid-template-rows: 200px auto 80px;
+}
+/* finish home component */
+
+/* notfound component */
+.notfound {
+  height:1600px;
+
+  background: url("./assets/images/pexels-photo-3183660.jpeg")no-repeat;
+  -webkit-background-size:cover;
+  -o-background-size:cover;
+  -moz-background-size:cover;
+  background-size:cover;
+ }
+
+ .notfound-container {
+  display: grid;
+  grid-template-rows: auto;
+}
+/* finish notfound component */
